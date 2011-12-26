@@ -1,4 +1,6 @@
 Kistentracker::Application.routes.draw do
+  resources :craterpayers
+
   resources :teammates
 
   # The priority is based upon order of creation:

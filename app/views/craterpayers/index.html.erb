@@ -1,0 +1,27 @@
+<h1>Listing craterpayers</h1>
+
+<table>
+  <tr>
+    <th>Teammate</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @craterpayers.each do |craterpayer| %>
+  <tr>
+    <td><%= craterpayer.teammate_id %></td>
+    <td><%= craterpayer.name %></td>
+    <td><%= craterpayer.email %></td>
+    <td><%= link_to 'Show', craterpayer %></td>
+    <td><%= link_to 'Edit', edit_craterpayer_path(craterpayer) %></td>
+    <td><%= link_to 'Destroy', craterpayer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Craterpayer', new_craterpayer_path %>
