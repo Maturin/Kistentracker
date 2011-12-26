@@ -1,0 +1,37 @@
+<h1>Listing teammates</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Dob</th>
+    <th>Address</th>
+    <th>Zip</th>
+    <th>City</th>
+    <th>Phone</th>
+    <th>Cell</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teammates.each do |teammate| %>
+  <tr>
+    <td><%= teammate.firstname %></td>
+    <td><%= teammate.lastname %></td>
+    <td><%= teammate.dob %></td>
+    <td><%= teammate.address %></td>
+    <td><%= teammate.zip %></td>
+    <td><%= teammate.city %></td>
+    <td><%= teammate.phone %></td>
+    <td><%= teammate.cell %></td>
+    <td><%= link_to 'Show', teammate %></td>
+    <td><%= link_to 'Edit', edit_teammate_path(teammate) %></td>
+    <td><%= link_to 'Destroy', teammate, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teammate', new_teammate_path %>
