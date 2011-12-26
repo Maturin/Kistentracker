@@ -10,12 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111226142626) do
+ActiveRecord::Schema.define(:version => 20111226143204) do
 
   create_table "craterpayers", :force => true do |t|
     t.integer  "teammate_id"
     t.string   "name"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "craters", :force => true do |t|
+    t.integer  "craterpayer_id"
+    t.string   "reason"
+    t.date     "date"
+    t.date     "paid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

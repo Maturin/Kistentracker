@@ -1,4 +1,6 @@
 Kistentracker::Application.routes.draw do
+  resources :craters
+
   resources :craterpayers
 
   resources :teammates

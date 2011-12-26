@@ -1,0 +1,29 @@
+<h1>Listing craters</h1>
+
+<table>
+  <tr>
+    <th>Craterpayer</th>
+    <th>Reason</th>
+    <th>Date</th>
+    <th>Paid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @craters.each do |crater| %>
+  <tr>
+    <td><%= crater.craterpayer_id %></td>
+    <td><%= crater.reason %></td>
+    <td><%= crater.date %></td>
+    <td><%= crater.paid %></td>
+    <td><%= link_to 'Show', crater %></td>
+    <td><%= link_to 'Edit', edit_crater_path(crater) %></td>
+    <td><%= link_to 'Destroy', crater, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Crater', new_crater_path %>

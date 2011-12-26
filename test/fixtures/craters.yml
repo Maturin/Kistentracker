@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  craterpayer_id: 1
+  reason: MyString
+  date: 2011-12-26
+  paid: 2011-12-26
+
+two:
+  craterpayer_id: 1
+  reason: MyString
+  date: 2011-12-26
+  paid: 2011-12-26

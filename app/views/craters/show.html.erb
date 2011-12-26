@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Craterpayer:</b>
+  <%= @crater.craterpayer_id %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @crater.reason %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @crater.date %>
+</p>
+
+<p>
+  <b>Paid:</b>
+  <%= @crater.paid %>
+</p>
+
+
+<%= link_to 'Edit', edit_crater_path(@crater) %> |
+<%= link_to 'Back', craters_path %>
