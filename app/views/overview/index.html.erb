@@ -1,5 +1,11 @@
-<h1>Overview</h1>
+<h1>Ausstehende Kisten</h1>
 
-<% @craters.each do |crater| %>
-<p><%= crater.craterpayer_id %> | <%= crater.reason %> | <%= crater.date %></p>
+<% @pend_craters.each do |crater| %>
+<p><%= crater.name %> [<%= crater.date %>] - <%= crater.reason %> </p>
+<% end %>
+
+<h1>Zuletzt bezahlte Kisten</h1>
+
+<% @paid_craters.each do |crater| %>
+<p><%= crater.name %> [<%= crater.paid %>] - <%= crater.reason %> </p>
 <% end %>
