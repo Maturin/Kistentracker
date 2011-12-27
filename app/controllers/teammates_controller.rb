@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-1 -*-
 class TeammatesController < ApplicationController
   # GET /teammates
   # GET /teammates.json
@@ -35,6 +36,28 @@ class TeammatesController < ApplicationController
   # GET /teammates/1/edit
   def edit
     @teammate = Teammate.find(params[:id])
+  end
+
+  # GET /teammates/1/password
+  def changepassword
+    if @teammate.nil?
+      @teammate = Teammate.find(params[:id])
+    end
+  end
+
+  # POST /teammates/1/password
+  def updatepassword
+    @teammate = Teammate.find(params[:id])
+
+    form_fields = params[:teammate]
+
+    respond_to do |format|
+      if @teammate.change_password(form_fields[:password], form_fields[:password_new], form_fields[:password_confirmation])
+        format.html { redirect_to @teammate, :notice => 'Password wurde erfolgreich geaendert.' }
+      else
+        render(:action => :changepassword)
+      end
+    end
   end
 
   # POST /teammates

@@ -40,5 +40,6 @@
   <%= @teammate.cell %>
 </p>
 
+<%= link_to 'Passwort aendern', teammate_path(@teammate) + '/changepassword' %> |
 <%= link_to 'Edit', edit_teammate_path(@teammate) %> |
 <%= link_to 'Back', teammates_path %>
