@@ -10,8 +10,8 @@
 <p><%= crater.name %> [<%= crater.paid %>] - <%= crater.reason %> </p>
 <% end %>
 
-<% if true == true %>
-   <a href="">Login</a>
+<% if !session[:user_id].nil? %>
+   <a href="<%= logout_url %>">Logout</a>
 <% else %>
-   <a href="">Logout</a>
+   <a href="<%= login_url %>">Login</a>
 <% end %>

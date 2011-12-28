@@ -14,10 +14,16 @@ class Teammate < ActiveRecord::Base
     if cp = Craterpayer.find_by_name(name)
       if cp.teammate_id.nil? == false
         teammate = cp.teammate
-        if teammate.hashed_password == encrypt_password(password, teammate.salt)
+        if teammate.salt && (teammate.hashed_password == encrypt_password(password, teammate.salt))
           return teammate
+        else
+          logger.info "Password '[FILTERED]' is not valid"
         end
+      else
+        logger.info "'#{name}' is not a teammate."
       end
+    else
+      logger.info "Could not find user '#{name}'"
     end
 
     return nil
