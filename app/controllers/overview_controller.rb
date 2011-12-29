@@ -1,4 +1,6 @@
 class OverviewController < ApplicationController
+  skip_before_filter :authorize
+
   # GET /teammates
   # GET /teammates.json
   def index
