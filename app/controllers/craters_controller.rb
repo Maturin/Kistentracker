@@ -25,6 +25,7 @@ class CratersController < ApplicationController
   # GET /craters/new.json
   def new
     @crater = Crater.new
+    @payers = get_craterpayers()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class CratersController < ApplicationController
   # GET /craters/1/edit
   def edit
     @crater = Crater.find(params[:id])
+    @payers = get_craterpayers()
   end
 
   # POST /craters
@@ -79,5 +81,13 @@ class CratersController < ApplicationController
       format.html { redirect_to craters_url }
       format.json { head :ok }
     end
+  end
+
+  private
+
+  def get_craterpayers
+    payers = Craterpayer.all.map { |payer| [payer.name, payer.id] } 
+
+    return payers
   end
 end

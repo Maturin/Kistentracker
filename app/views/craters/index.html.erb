@@ -13,7 +13,7 @@
 
 <% @craters.each do |crater| %>
   <tr>
-    <td><%= crater.craterpayer_id %></td>
+    <td><%= crater.craterpayer.name %></td>
     <td><%= crater.reason %></td>
     <td><%= crater.date %></td>
     <td><%= crater.paid %></td>

@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :craterpayer_id %><br />
-    <%= f.number_field :craterpayer_id %>
+    <%= f.label 'Wer' %><br />
+    <%= f.select :craterpayer_id, @payers %>
   </div>
   <div class="field">
-    <%= f.label :reason %><br />
+    <%= f.label 'Warum' %><br />
     <%= f.text_field :reason %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label 'Wann' %><br />
     <%= f.date_select :date %>
   </div>
   <div class="actions">
