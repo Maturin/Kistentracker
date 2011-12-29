@@ -1,3 +1,10 @@
+<% if logged_in? %>
+  <div>
+   <a href="<%= logout_url %>">Neue Kiste</a> | 
+   <a href="<%= logout_url %>">Logout</a>
+  </div>
+<% end %>
+
 <h1>Ausstehende Kisten</h1>
 
 <% @pend_craters.each do |crater| %>
@@ -10,8 +17,6 @@
 <p><%= crater.name %> [<%= crater.paid %>] - <%= crater.reason %> </p>
 <% end %>
 
-<% if !session[:user_id].nil? %>
-   <a href="<%= logout_url %>">Logout</a>
-<% else %>
+<% if !logged_in? %>
    <a href="<%= login_url %>">Login</a>
 <% end %>
