@@ -8,13 +8,16 @@
 <h1>Ausstehende Kisten</h1>
 
 <% @pend_craters.each do |crater| %>
-<p><%= crater.name %> [<%= crater.date %>] - <%= crater.reason %> </p>
+<p><b><%= crater.name %></b> [<%= crater.date %>] - <%= crater.reason %>
+  <% if logged_in? %>
+    [<a href="craters/<%= crater.id %>/waspaid">Wurde Bezahlt</a>]
+  <% end %></p>
 <% end %>
 
 <h1>Zuletzt bezahlte Kisten</h1>
 
 <% @paid_craters.each do |crater| %>
-<p><%= crater.name %> [<%= crater.paid %>] - <%= crater.reason %> </p>
+<p><b><%= crater.name %></b> [<%= crater.paid %>] - <%= crater.reason %> </p>
 <% end %>
 
 <% if !logged_in? %>

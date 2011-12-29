@@ -83,6 +83,10 @@ class CratersController < ApplicationController
     end
   end
 
+  def show_waspaid
+    @crater = Crater.find(params[:id])
+  end
+
   private
 
   def get_craterpayers

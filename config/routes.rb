@@ -11,6 +11,10 @@ Kistentracker::Application.routes.draw do
 
   resources :craters
 
+  controller :craters do
+    get  'craters/:id/waspaid' => :show_waspaid
+  end
+
   resources :craterpayers
 
   resources :teammates
