@@ -10,9 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111226143204) do
+ActiveRecord::Schema.define(:version => 20111229161858) do
 
-  create_table "craterpayers", :force => true do |t|
+  create_table "cratepayers", :force => true do |t|
     t.integer  "teammate_id"
     t.string   "name"
     t.string   "email"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(:version => 20111226143204) do
     t.datetime "updated_at"
   end
 
-  create_table "craters", :force => true do |t|
-    t.integer  "craterpayer_id"
+  create_table "crates", :force => true do |t|
+    t.integer  "cratepayer_id"
     t.string   "reason"
     t.date     "date"
     t.date     "paid"
