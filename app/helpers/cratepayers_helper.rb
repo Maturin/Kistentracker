@@ -1,2 +1,2 @@
-module CraterpayersHelper
+module CratepayersHelper
 end

@@ -1,8 +1,8 @@
-<h1>Listing craters</h1>
+<h1>Listing crates</h1>
 
 <table>
   <tr>
-    <th>Craterpayer</th>
+    <th>Cratepayer</th>
     <th>Reason</th>
     <th>Date</th>
     <th>Paid</th>
@@ -11,20 +11,20 @@
     <th></th>
   </tr>
 
-<% @craters.each do |crater| %>
+<% @crates.each do |crate| %>
   <tr>
-    <td><%= crater.craterpayer.name %></td>
-    <td><%= crater.reason %></td>
-    <td><%= crater.date %></td>
-    <td><%= crater.paid %></td>
-    <td><%= link_to 'Show', crater %></td>
-    <td><%= link_to 'Edit', edit_crater_path(crater) %></td>
-    <td><%= link_to 'Destroy', crater, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to 'Paid', "craters/#{crater.id}/waspaid" %></td>
+    <td><%= crate.cratepayer.name %></td>
+    <td><%= crate.reason %></td>
+    <td><%= crate.date %></td>
+    <td><%= crate.paid %></td>
+    <td><%= link_to 'Show', crate %></td>
+    <td><%= link_to 'Edit', edit_crate_path(crate) %></td>
+    <td><%= link_to 'Destroy', crate, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Paid', "crates/#{crate.id}/waspaid" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Crater', new_crater_path %>
+<%= link_to 'New Crate', new_crate_path %>

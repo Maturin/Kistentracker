@@ -9,13 +9,13 @@ Kistentracker::Application.routes.draw do
   
   resources :overview
 
-  resources :craters
+  resources :crates
 
-  controller :craters do
-    get  'craters/:id/waspaid' => :show_waspaid
+  controller :crates do
+    get  'crates/:id/waspaid' => :show_waspaid
   end
 
-  resources :craterpayers
+  resources :cratepayers
 
   resources :teammates
 

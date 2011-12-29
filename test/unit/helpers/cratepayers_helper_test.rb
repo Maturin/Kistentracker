@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class CraterpayersHelperTest < ActionView::TestCase
+class CratepayersHelperTest < ActionView::TestCase
 end

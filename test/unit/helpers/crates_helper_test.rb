@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class CratersHelperTest < ActionView::TestCase
+class CratesHelperTest < ActionView::TestCase
 end

@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class CratersControllerTest < ActionController::TestCase
+class CratesControllerTest < ActionController::TestCase
   setup do
-    @crater = craters(:one)
+    @crate = crates(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:craters)
+    assert_not_nil assigns(:crates)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class CratersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create crater" do
-    assert_difference('Crater.count') do
-      post :create, :crater => @crater.attributes
+  test "should create crate" do
+    assert_difference('Crate.count') do
+      post :create, :crate => @crate.attributes
     end
 
-    assert_redirected_to crater_path(assigns(:crater))
+    assert_redirected_to crate_path(assigns(:crate))
   end
 
-  test "should show crater" do
-    get :show, :id => @crater.to_param
+  test "should show crate" do
+    get :show, :id => @crate.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @crater.to_param
+    get :edit, :id => @crate.to_param
     assert_response :success
   end
 
-  test "should update crater" do
-    put :update, :id => @crater.to_param, :crater => @crater.attributes
-    assert_redirected_to crater_path(assigns(:crater))
+  test "should update crate" do
+    put :update, :id => @crate.to_param, :crate => @crate.attributes
+    assert_redirected_to crate_path(assigns(:crate))
   end
 
-  test "should destroy crater" do
-    assert_difference('Crater.count', -1) do
-      delete :destroy, :id => @crater.to_param
+  test "should destroy crate" do
+    assert_difference('Crate.count', -1) do
+      delete :destroy, :id => @crate.to_param
     end
 
-    assert_redirected_to craters_path
+    assert_redirected_to crates_path
   end
 end

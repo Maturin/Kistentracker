@@ -1,8 +1,8 @@
 require 'digest/sha2'
-require 'app/models/craterpayer'
+require 'app/models/cratepayer'
 
 class Teammate < ActiveRecord::Base
-  has_one :craterpayer
+  has_one :cratepayer
 
   validates :password, :confirmation => true
   attr_accessor :password_new, :password_confirmation
@@ -11,7 +11,7 @@ class Teammate < ActiveRecord::Base
   #validate :password_must_be_present
 
   def Teammate.authenticate(name, password)
-    if cp = Craterpayer.find_by_name(name)
+    if cp = Cratepayer.find_by_name(name)
       if cp.teammate_id.nil? == false
         teammate = cp.teammate
         if teammate.salt && (teammate.hashed_password == encrypt_password(password, teammate.salt))

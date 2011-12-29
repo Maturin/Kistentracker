@@ -1,6 +1,6 @@
-class Craterpayer < ActiveRecord::Base
+class Cratepayer < ActiveRecord::Base
   belongs_to :teammate
-  has_many :crater 
+  has_many :crate 
 
   validates :name, :presence => true, :uniqueness => true
 end

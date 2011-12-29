@@ -1,12 +1,12 @@
 <h1>Kiste Wurde Gezahlt</h1>
 
-<%= form_for(@crater) do |f| %>
-  <% if @crater.errors.any? %>
+<%= form_for(@crate) do |f| %>
+  <% if @crate.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@crater.errors.count, "error") %> prohibited this crater from being saved:</h2>
+      <h2><%= pluralize(@crate.errors.count, "error") %> prohibited this crate from being saved:</h2>
 
       <ul>
-      <% @crater.errors.full_messages.each do |msg| %>
+      <% @crate.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -14,15 +14,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label 'Wessen: ' %><%= @crater.craterpayer.name %>
+    <%= f.label 'Wessen: ' %><%= @crate.cratepayer.name %>
   </div>
 
   <div class="field">
-    <%= f.label 'Warum: ' %><%= @crater.reason %>
+    <%= f.label 'Warum: ' %><%= @crate.reason %>
   </div>
 
   <div class="field">
-    <%= f.label 'Wann: ' %><%= @crater.date %>
+    <%= f.label 'Wann: ' %><%= @crate.date %>
   </div>
 
   <div class="field">

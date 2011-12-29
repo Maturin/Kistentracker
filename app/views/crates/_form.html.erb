@@ -1,10 +1,10 @@
-<%= form_for(@crater) do |f| %>
-  <% if @crater.errors.any? %>
+<%= form_for(@crate) do |f| %>
+  <% if @crate.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@crater.errors.count, "error") %> prohibited this crater from being saved:</h2>
+      <h2><%= pluralize(@crate.errors.count, "error") %> prohibited this crate from being saved:</h2>
 
       <ul>
-      <% @crater.errors.full_messages.each do |msg| %>
+      <% @crate.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label 'Wer' %><br />
-    <%= f.select :craterpayer_id, @payers %>
+    <%= f.select :cratepayer_id, @payers %>
   </div>
   <div class="field">
     <%= f.label 'Warum' %><br />

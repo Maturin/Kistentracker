@@ -1,3 +1,3 @@
-class Crater < ActiveRecord::Base
-  belongs_to :craterpayer 
+class Crate < ActiveRecord::Base
+  belongs_to :cratepayer 
 end

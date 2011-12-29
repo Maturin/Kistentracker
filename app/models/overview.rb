@@ -1,19 +1,19 @@
 class Overview < ActiveRecord::Base
-  self.table_name = 'craters'
+  self.table_name = 'crates'
 
-  def Overview.get_pending_craters
+  def Overview.get_pending_crates
     return Overview.find_by_sql <<EOSQL
-SELECT craters.id, craterpayers.name, craters.reason, craters."date" 
-FROM craters, craterpayers 
-WHERE (craterpayers.id = craters.craterpayer_id) AND (craters.paid IS NULL);
+SELECT crates.id, cratepayers.name, crates.reason, crates."date" 
+FROM crates, cratepayers 
+WHERE (cratepayers.id = crates.cratepayer_id) AND (crates.paid IS NULL);
 EOSQL
   end
 
-  def Overview.get_last_paid_craters
+  def Overview.get_last_paid_crates
     return Overview.find_by_sql <<EOSQL
-SELECT craters.id, craterpayers.name, craters.reason, craters."paid" 
-FROM craters, craterpayers 
-WHERE (craterpayers.id = craters.craterpayer_id) AND (craters.paid IS NOT NULL);
+SELECT crates.id, cratepayers.name, crates.reason, crates."paid" 
+FROM crates, cratepayers 
+WHERE (cratepayers.id = crates.cratepayer_id) AND (crates.paid IS NOT NULL);
 EOSQL
   end
 

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CraterTest < ActiveSupport::TestCase
+class CrateTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

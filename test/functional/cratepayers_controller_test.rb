@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class CraterpayersControllerTest < ActionController::TestCase
+class CratepayersControllerTest < ActionController::TestCase
   setup do
-    @craterpayer = craterpayers(:one)
+    @cratepayer = cratepayers(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:craterpayers)
+    assert_not_nil assigns(:cratepayers)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class CraterpayersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create craterpayer" do
-    assert_difference('Craterpayer.count') do
-      post :create, :craterpayer => @craterpayer.attributes
+  test "should create cratepayer" do
+    assert_difference('Cratepayer.count') do
+      post :create, :cratepayer => @cratepayer.attributes
     end
 
-    assert_redirected_to craterpayer_path(assigns(:craterpayer))
+    assert_redirected_to cratepayer_path(assigns(:cratepayer))
   end
 
-  test "should show craterpayer" do
-    get :show, :id => @craterpayer.to_param
+  test "should show cratepayer" do
+    get :show, :id => @cratepayer.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @craterpayer.to_param
+    get :edit, :id => @cratepayer.to_param
     assert_response :success
   end
 
-  test "should update craterpayer" do
-    put :update, :id => @craterpayer.to_param, :craterpayer => @craterpayer.attributes
-    assert_redirected_to craterpayer_path(assigns(:craterpayer))
+  test "should update cratepayer" do
+    put :update, :id => @cratepayer.to_param, :cratepayer => @cratepayer.attributes
+    assert_redirected_to cratepayer_path(assigns(:cratepayer))
   end
 
-  test "should destroy craterpayer" do
-    assert_difference('Craterpayer.count', -1) do
-      delete :destroy, :id => @craterpayer.to_param
+  test "should destroy cratepayer" do
+    assert_difference('Cratepayer.count', -1) do
+      delete :destroy, :id => @cratepayer.to_param
     end
 
-    assert_redirected_to craterpayers_path
+    assert_redirected_to cratepayers_path
   end
 end

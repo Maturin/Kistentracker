@@ -1,82 +1,82 @@
-class CraterpayersController < ApplicationController
-  # GET /craterpayers
-  # GET /craterpayers.json
+class CratepayersController < ApplicationController
+  # GET /cratepayers
+  # GET /cratepayers.json
   def index
-    @craterpayers = Craterpayer.all
+    @cratepayers = Cratepayer.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @craterpayers }
+      format.json { render :json => @cratepayers }
     end
   end
 
-  # GET /craterpayers/1
-  # GET /craterpayers/1.json
+  # GET /cratepayers/1
+  # GET /cratepayers/1.json
   def show
-    @craterpayer = Craterpayer.find(params[:id])
+    @cratepayer = Cratepayer.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @craterpayer }
+      format.json { render :json => @cratepayer }
     end
   end
 
-  # GET /craterpayers/new
-  # GET /craterpayers/new.json
+  # GET /cratepayers/new
+  # GET /cratepayers/new.json
   def new
-    @craterpayer = Craterpayer.new
+    @cratepayer = Cratepayer.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @craterpayer }
+      format.json { render :json => @cratepayer }
     end
   end
 
-  # GET /craterpayers/1/edit
+  # GET /cratepayers/1/edit
   def edit
-    @craterpayer = Craterpayer.find(params[:id])
+    @cratepayer = Cratepayer.find(params[:id])
   end
 
-  # POST /craterpayers
-  # POST /craterpayers.json
+  # POST /cratepayers
+  # POST /cratepayers.json
   def create
-    @craterpayer = Craterpayer.new(params[:craterpayer])
+    @cratepayer = Cratepayer.new(params[:cratepayer])
 
     respond_to do |format|
-      if @craterpayer.save
-        format.html { redirect_to @craterpayer, :notice => 'Craterpayer was successfully created.' }
-        format.json { render :json => @craterpayer, :status => :created, :location => @craterpayer }
+      if @cratepayer.save
+        format.html { redirect_to @cratepayer, :notice => 'Cratepayer was successfully created.' }
+        format.json { render :json => @cratepayer, :status => :created, :location => @cratepayer }
       else
         format.html { render :action => "new" }
-        format.json { render :json => @craterpayer.errors, :status => :unprocessable_entity }
+        format.json { render :json => @cratepayer.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /craterpayers/1
-  # PUT /craterpayers/1.json
+  # PUT /cratepayers/1
+  # PUT /cratepayers/1.json
   def update
-    @craterpayer = Craterpayer.find(params[:id])
+    @cratepayer = Cratepayer.find(params[:id])
 
     respond_to do |format|
-      if @craterpayer.update_attributes(params[:craterpayer])
-        format.html { redirect_to @craterpayer, :notice => 'Craterpayer was successfully updated.' }
+      if @cratepayer.update_attributes(params[:cratepayer])
+        format.html { redirect_to @cratepayer, :notice => 'Cratepayer was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
-        format.json { render :json => @craterpayer.errors, :status => :unprocessable_entity }
+        format.json { render :json => @cratepayer.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /craterpayers/1
-  # DELETE /craterpayers/1.json
+  # DELETE /cratepayers/1
+  # DELETE /cratepayers/1.json
   def destroy
-    @craterpayer = Craterpayer.find(params[:id])
-    @craterpayer.destroy
+    @cratepayer = Cratepayer.find(params[:id])
+    @cratepayer.destroy
 
     respond_to do |format|
-      format.html { redirect_to craterpayers_url }
+      format.html { redirect_to cratepayers_url }
       format.json { head :ok }
     end
   end

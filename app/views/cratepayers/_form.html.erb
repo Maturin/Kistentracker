@@ -1,10 +1,10 @@
-<%= form_for(@craterpayer) do |f| %>
-  <% if @craterpayer.errors.any? %>
+<%= form_for(@cratepayer) do |f| %>
+  <% if @cratepayer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@craterpayer.errors.count, "error") %> prohibited this craterpayer from being saved:</h2>
+      <h2><%= pluralize(@cratepayer.errors.count, "error") %> prohibited this cratepayer from being saved:</h2>
 
       <ul>
-      <% @craterpayer.errors.full_messages.each do |msg| %>
+      <% @cratepayer.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

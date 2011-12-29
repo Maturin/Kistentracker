@@ -1,23 +1,23 @@
 <% if logged_in? %>
   <div>
-   <a href="<%= new_crater_url %>">Neue Kiste</a> | 
+   <a href="<%= new_crate_url %>">Neue Kiste</a> | 
    <a href="<%= logout_url %>">Logout</a>
   </div>
 <% end %>
 
 <h1>Ausstehende Kisten</h1>
 
-<% @pend_craters.each do |crater| %>
-<p><b><%= crater.name %></b> [<%= crater.date %>] - <%= crater.reason %>
+<% @pend_crates.each do |crate| %>
+<p><b><%= crate.name %></b> [<%= crate.date %>] - <%= crate.reason %>
   <% if logged_in? %>
-    [<a href="craters/<%= crater.id %>/waspaid">Wurde Bezahlt</a>]
+    [<a href="crates/<%= crate.id %>/waspaid">Wurde Bezahlt</a>]
   <% end %></p>
 <% end %>
 
 <h1>Zuletzt bezahlte Kisten</h1>
 
-<% @paid_craters.each do |crater| %>
-<p><b><%= crater.name %></b> [<%= crater.paid %>] - <%= crater.reason %> </p>
+<% @paid_crates.each do |crate| %>
+<p><b><%= crate.name %></b> [<%= crate.paid %>] - <%= crate.reason %> </p>
 <% end %>
 
 <% if !logged_in? %>

@@ -4,12 +4,12 @@ class OverviewController < ApplicationController
   # GET /teammates
   # GET /teammates.json
   def index
-    @pend_craters = Overview.get_pending_craters 
-    @paid_craters = Overview.get_last_paid_craters 
+    @pend_crates = Overview.get_pending_crates 
+    @paid_crates = Overview.get_last_paid_crates 
 
     respond_to do |format|
       format.html # index.html.erb
-      #format.json { render :json => @craters }
+      #format.json { render :json => @crates }
     end
   end
 

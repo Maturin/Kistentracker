@@ -1,2 +1,2 @@
-module CratersHelper
+module CratesHelper
 end
