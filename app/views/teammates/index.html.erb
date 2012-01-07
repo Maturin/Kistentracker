@@ -30,7 +30,7 @@
     <td><%= call_to(teammate.phone) %></td>
     <td><%= call_to(teammate.cell) %></td>
     <td><%= mail_to teammate.cratepayer.email %></td>
-    <td><%= link_to image_tag("vcard_16x16.png",  :border=>0), teammate %> 
+    <td><%= link_to image_tag("vcard_16x16.png",  :border=>0), teammate_path(teammate) + '.vcf' %>
         <%= link_to image_tag("delete_16x16.png", :border=>0), teammate, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

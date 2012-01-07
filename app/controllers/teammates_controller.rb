@@ -1,4 +1,3 @@
-# -*- coding: iso-8859-1 -*-
 class TeammatesController < ApplicationController
   # GET /teammates
   # GET /teammates.json
@@ -20,6 +19,10 @@ class TeammatesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @teammate }
+      format.vcf do
+        get_contact
+        #render :nothing => true
+      end
     end
   end
 
@@ -104,4 +107,49 @@ class TeammatesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  private 
+
+  def valid?(value)
+    return (value.to_s.size() > 0)
+  end
+
+  def get_contact
+    tm = @teammate
+
+    fullFileName = "#{tm.firstname}_#{tm.lastname}.vcf"
+
+    card = Vpim::Vcard::Maker.make2 do |maker|
+      maker.nickname = tm.cratepayer.name
+
+      maker.add_name do |name|
+        name.given  = tm.firstname if valid?(tm.firstname)
+        name.family = tm.lastname  if valid?(tm.lastname)
+      end
+
+      maker.add_addr do |addr|
+        addr.location   = 'HOME'
+        addr.street     = tm.address if valid?(tm.address)
+        addr.locality   = tm.city    if valid?(tm.city)
+        addr.postalcode = tm.zip     if valid?(tm.zip)
+      end
+
+      if valid?(tm.phone)
+        maker.add_tel(tm.phone) { |t| t.location = 'HOME' }
+      end
+
+      if valid?(tm.cell)
+        maker.add_tel(tm.cell)  { |t| t.location = 'CELL' }
+      end
+      
+      if valid?(tm.cratepayer.email)
+        maker.add_email(tm.cratepayer.email) { |e| e.location = 'HOME' }
+      end
+      
+      maker.birthday = tm.dob if valid?(tm.dob) 
+    end
+
+    send_data(card.to_s, :filename => fullFileName)
+  end
+
 end
