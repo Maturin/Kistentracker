@@ -1,4 +1,4 @@
-<h1>Mannschafts Mitglieder</h1>
+<h1>Mannschaft</h1>
 
 <table>
   <tr>
@@ -27,8 +27,8 @@
     <td style="cursor:pointer" onclick="document.location.href='<%= teammate_path(teammate) %>'"><%= teammate.address %></td>
     <td style="cursor:pointer" onclick="document.location.href='<%= teammate_path(teammate) %>'"><%= teammate.zip %></td>
     <td style="cursor:pointer" onclick="document.location.href='<%= teammate_path(teammate) %>'"><%= teammate.city %></td>
-    <td><%= teammate.phone %></td>
-    <td><%= teammate.cell %></td>
+    <td><%= call_to(teammate.phone) %></td>
+    <td><%= call_to(teammate.cell) %></td>
     <td><%= mail_to teammate.cratepayer.email %></td>
     <td><%= link_to image_tag("vcard_16x16.png",  :border=>0), teammate %> 
         <%= link_to image_tag("delete_16x16.png", :border=>0), teammate, :confirm => 'Are you sure?', :method => :delete %></td>
