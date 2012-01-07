@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :dob %><br />
-    <%= f.date_select :dob %>
+    <%= f.date_select :dob, :start_year => 1960, :end_year => (Time.now.year - 10)  %>
   </div>
   <div class="field">
     <%= f.label :address %><br />

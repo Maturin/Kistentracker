@@ -3,7 +3,8 @@ class TeammatesController < ApplicationController
   # GET /teammates
   # GET /teammates.json
   def index
-    @teammates = Teammate.all
+    #@teammates = Teammate.all
+    @teammates = Teammate.order('lastname')
 
     respond_to do |format|
       format.html # index.html.erb
