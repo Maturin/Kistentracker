@@ -1,11 +1,3 @@
-<% if logged_in? %>
-  <div>
-   <a href="<%= new_crate_url %>">Neue Kiste</a> | 
-   <a href="<%= teammates_url %>">Mannschaft</a> | 
-   <a href="<%= logout_url %>">Logout</a>
-  </div>
-<% end %>
-
 <h1>Ausstehende Kisten</h1>
 
 <% @pend_crates.each do |crate| %>
@@ -19,8 +11,4 @@
 
 <% @paid_crates.each do |crate| %>
 <p><b><%= crate.name %></b> [<%= crate.paid %>] - <%= crate.reason %> </p>
-<% end %>
-
-<% if !logged_in? %>
-   <a href="<%= login_url %>">Login</a>
 <% end %>
