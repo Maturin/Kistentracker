@@ -29,6 +29,7 @@ puts "Password: " + password
 
 
 tm = Teammate.new
+tm.firstname = name
 tm.password = password
 tm.save
 
