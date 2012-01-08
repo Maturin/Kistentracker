@@ -32,4 +32,3 @@ gem 'jquery-rails'
 # gem 'ruby-debug'
 
 gem 'vpim'
-require 'vpim/vcard'
