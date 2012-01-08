@@ -1,0 +1,23 @@
+<h1>Listing crate_types</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @crate_types.each do |crate_type| %>
+  <tr>
+    <td><%= crate_type.description %></td>
+    <td><%= link_to 'Show', crate_type %></td>
+    <td><%= link_to 'Edit', edit_crate_type_path(crate_type) %></td>
+    <td><%= link_to 'Destroy', crate_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Crate type', new_crate_type_path %>

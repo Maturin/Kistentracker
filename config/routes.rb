@@ -1,5 +1,7 @@
 Kistentracker::Application.routes.draw do
 
+  resources :crate_types
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
