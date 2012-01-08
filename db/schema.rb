@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108121820) do
+ActiveRecord::Schema.define(:version => 20120108141756) do
 
   create_table "crate_priorities", :force => true do |t|
     t.integer  "priority"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20120108121820) do
     t.date     "paid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "crate_type",           :default => "Kiste"
+    t.integer  "crate_priority_value", :default => 5
   end
 
   create_table "teammates", :force => true do |t|

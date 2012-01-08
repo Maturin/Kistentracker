@@ -26,6 +26,8 @@ class CratesController < ApplicationController
   def new
     @crate = Crate.new
     @payers = get_cratepayers()
+    @types = get_crate_types()
+    @priorities = get_crate_priorities()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +39,8 @@ class CratesController < ApplicationController
   def edit
     @crate = Crate.find(params[:id])
     @payers = get_cratepayers()
+    @types = get_crate_types()
+    @priorities = get_crate_priorities()
   end
 
   # POST /crates
@@ -90,8 +94,17 @@ class CratesController < ApplicationController
   private
 
   def get_cratepayers
-    payers = Cratepayer.all.map { |payer| [payer.name, payer.id] } 
-
+    payers = Cratepayer.order(:name).map { |payer| [payer.name, payer.id] } 
     return payers
+  end
+
+  def get_crate_priorities
+    priorities = CratePriority.order(:priority).map { |priority| [priority.description, priority.priority] } 
+    return priorities
+  end
+
+  def get_crate_types
+    types = CrateType.order(:description).map { |type| [type.description, type.description] }
+    return types
   end
 end

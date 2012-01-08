@@ -16,13 +16,22 @@
     <%= f.select :cratepayer_id, @payers %>
   </div>
   <div class="field">
+    <%= f.label 'Wann' %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
     <%= f.label 'Warum' %><br />
     <%= f.text_field :reason %>
   </div>
   <div class="field">
-    <%= f.label 'Wann' %><br />
-    <%= f.date_select :date %>
+    <%= f.label 'Was' %><br />
+    <%= f.select :crate_type, @types %>
   </div>
+  <div class="field">
+    <%= f.label 'Prioritaet' %><br />
+    <%= f.select :crate_priority_value, @priorities %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

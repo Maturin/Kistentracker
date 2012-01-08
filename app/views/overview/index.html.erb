@@ -1,7 +1,7 @@
 <h1>Ausstehende Kisten</h1>
 
 <% @pend_crates.each do |crate| %>
-<p><b><%= crate.name %></b> [<%= crate.date %>] - <%= crate.reason %>
+<p><b><%= crate.name %> - <%= crate.reason %></b> (<%= crate.date %>, <%= crate.crate_type %>, <%= crate.description %>)
   <% if crate_priveledge? %>
     [<a href="crates/<%= crate.id %>/waspaid">Bezahlt</a>]
   <% end %></p>
@@ -10,5 +10,5 @@
 <h1>Zuletzt bezahlte Kisten</h1>
 
 <% @paid_crates.each do |crate| %>
-<p><b><%= crate.name %></b> [<%= crate.paid %>] - <%= crate.reason %> </p>
+<p><b><%= crate.name %> - <%= crate.reason %></b> (<%= crate.paid %>, <%= crate.crate_type %>, <%= crate.description %>)
 <% end %>
