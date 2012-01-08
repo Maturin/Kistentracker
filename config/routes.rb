@@ -1,5 +1,7 @@
 Kistentracker::Application.routes.draw do
 
+  resources :crate_priorities
+
   resources :crate_types
 
   controller :sessions do

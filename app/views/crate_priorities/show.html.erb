@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Priority:</b>
+  <%= @crate_priority.priority %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @crate_priority.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_crate_priority_path(@crate_priority) %> |
+<%= link_to 'Back', crate_priorities_path %>

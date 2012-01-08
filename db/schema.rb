@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108115642) do
+ActiveRecord::Schema.define(:version => 20120108121820) do
+
+  create_table "crate_priorities", :force => true do |t|
+    t.integer  "priority"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "crate_types", :force => true do |t|
     t.string   "description"

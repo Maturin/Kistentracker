@@ -1,0 +1,25 @@
+<%= form_for(@crate_priority) do |f| %>
+  <% if @crate_priority.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crate_priority.errors.count, "error") %> prohibited this crate_priority from being saved:</h2>
+
+      <ul>
+      <% @crate_priority.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.number_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
