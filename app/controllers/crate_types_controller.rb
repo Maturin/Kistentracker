@@ -1,4 +1,6 @@
 class CrateTypesController < ApplicationController
+  before_filter :need_admin_priveledge
+
   # GET /crate_types
   # GET /crate_types.json
   def index

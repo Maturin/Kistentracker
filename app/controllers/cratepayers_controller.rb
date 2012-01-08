@@ -1,4 +1,6 @@
 class CratepayersController < ApplicationController
+  before_filter :need_admin_priveledge
+
   # GET /cratepayers
   # GET /cratepayers.json
   def index

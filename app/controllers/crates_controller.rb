@@ -1,4 +1,6 @@
 class CratesController < ApplicationController
+  before_filter :need_crate_priveledge
+
   # GET /crates
   # GET /crates.json
   def index

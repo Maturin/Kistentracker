@@ -1,7 +1,7 @@
 class CratePrioritiesController < ApplicationController
   before_filter :need_admin_priveledge
 
-  # GET /crate_priorities
+ # GET /crate_priorities
   # GET /crate_priorities.json
   def index
     @crate_priorities = CratePriority.all

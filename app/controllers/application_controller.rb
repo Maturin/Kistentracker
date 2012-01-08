@@ -11,5 +11,17 @@ class ApplicationController < ActionController::Base
       redirect_to login_url, :notice => "Bitte einloggen."
     end
   end
-  
+
+  def need_admin_priveledge
+    unless admin_priveledge?
+      redirect_to '/', :notice => "Die noetigen Rechte fehlen."
+    end
+  end
+
+  def need_crate_priveledge
+    unless crate_priveledge?
+      redirect_to '/', :notice => "Die noetigen Rechte fehlen."
+    end
+  end
+
 end
