@@ -2,8 +2,8 @@
 
 <% @pend_crates.each do |crate| %>
 <p><b><%= crate.name %></b> [<%= crate.date %>] - <%= crate.reason %>
-  <% if logged_in? %>
-    [<a href="crates/<%= crate.id %>/waspaid">Wurde Bezahlt</a>]
+  <% if crate_priveledge? %>
+    [<a href="crates/<%= crate.id %>/waspaid">Bezahlt</a>]
   <% end %></p>
 <% end %>
 

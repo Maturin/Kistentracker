@@ -1,45 +1,49 @@
+<h1>Spieler: <%= @teammate.cratepayer.name %></h1>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Firstname:</b>
-  <%= @teammate.firstname %>
-</p>
+<table class="noborder">
+  <tr>
+    <td>Vorname:</td>
+    <td><%= @teammate.firstname %></td>
+  </tr>
+  <tr>
+    <td>Nachname:</td>
+    <td><%= @teammate.lastname %></td>
+  </tr>
+  <tr>
+    <td>Strasse:</td>
+    <td><%= @teammate.address %></td>
+  </tr>
+  <tr>
+    <td>PLZ:</td>
+    <td><%= @teammate.zip %></td>
+  </tr>
+  <tr>
+    <td>Stadt:</td>
+    <td><%= @teammate.city %></td>
+  </tr>
+  <tr>
+    <td>Telefon:</td>
+    <td><%= @teammate.phone %></td>
+  </tr>
+  <tr>
+    <td>Handy:</td>
+    <td><%= @teammate.cell %></td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td><%= @teammate.cratepayer.email %></td>
+  </tr>
+  <tr>
+    <td>Geburtstag:</td>
+    <td><%= @teammate.dob %></td>
+  </tr>
+</table>
 
-<p>
-  <b>Lastname:</b>
-  <%= @teammate.lastname %>
-</p>
+<br />
 
-<p>
-  <b>Dob:</b>
-  <%= @teammate.dob %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @teammate.address %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @teammate.zip %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @teammate.city %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @teammate.phone %>
-</p>
-
-<p>
-  <b>Cell:</b>
-  <%= @teammate.cell %>
-</p>
-
-<%= link_to 'Passwort aendern', teammate_path(@teammate) + '/changepassword' %> |
-<%= link_to 'Edit', edit_teammate_path(@teammate) %> |
 <%= link_to 'Back', teammates_path %>
+<% if myself?(@teammate) || admin_priveledge? %>
+| <%= link_to 'Passwort aendern', teammate_path(@teammate) + '/changepassword' %>
+| <%= link_to 'Edit', edit_teammate_path(@teammate) %>
+<% end %>

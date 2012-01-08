@@ -1,49 +1,52 @@
 <%= form_for(@teammate) do |f| %>
-  <% if @teammate.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@teammate.errors.count, "error") %> prohibited this teammate from being saved:</h2>
+<% if @teammate.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@teammate.errors.count, "error") %> prohibited this teammate from being saved:</h2>
 
-      <ul>
-      <% @teammate.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @teammate.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %><br />
-    <%= f.date_select :dob, :start_year => 1960, :end_year => (Time.now.year - 10)  %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :cell %><br />
-    <%= f.text_field :cell %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table class="noborder">
+  <tr class="field">
+    <td>Vorname:</td>
+    <td><%= f.text_field :firstname %></td>
+  </tr>
+  <tr class="field">
+    <td>Nachname:</td>
+    <td><%= f.text_field :lastname %></td>
+  </tr>
+  <tr class="field">
+    <td>Strasse:</td>
+    <td><%= f.text_area :address, :cols => 22, :rows => 3 %></td>
+  </tr>
+  <tr class="field">
+    <td>PLZ:</td>
+    <td><%= f.text_field :zip %></td>
+  </tr>
+  <tr class="field">
+    <td>Stadt:</td>
+    <td><%= f.text_field :city %></td>
+  </tr>
+  <tr class="field">
+    <td>Telefon:</td>
+    <td><%= f.text_field :phone %></td>
+  </tr>
+  <tr class="field">
+    <td>Handy:</td>
+    <td><%= f.text_field :cell %></td>
+  </tr>
+  <tr class="field">
+    <td>Geburtstag:</td>
+    <td><%= f.date_select :dob, :start_year => 1960, :end_year => (Time.now.year - 10)  %></td>
+  </tr>
+</table>
+
+<div class="actions">
+  <%= f.submit "Speichern"  %>
+</div>
 <% end %>

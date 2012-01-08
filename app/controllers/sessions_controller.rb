@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    logger.warn "Here we go"
     if user = Teammate.authenticate(params[:user_name], params[:password])
       login(user.id)
       redirect_to '/', :notice => "Benutzer '#{params[:user_name]}' erfolgreich eingelogged."

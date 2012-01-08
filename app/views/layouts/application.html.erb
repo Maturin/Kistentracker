@@ -14,7 +14,7 @@
    <% end %>
    <% if logged_in? %>
    <a href="<%= teammates_url %>">Mannschaft</a> | 
-   <a href="<%= logout_url %>">Logout</a>
+   <a href="<%= logout_url %>">Logout (<%= user_name %>)</a>
    <% else %>
    <a href="<%= login_url %>">Login</a>
    <% end %>

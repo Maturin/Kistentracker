@@ -12,3 +12,5 @@ table tr.evenrow { background-color:white; border: 1px solid;}
 table tr.evenrow td { border: 1px solid gray }
 table tr.oddrow { background-color:silver; border: 1px solid;}
 table tr.oddrow td { border: 1px solid gray }
+
+table.noborder { border: 0px; }

@@ -7,4 +7,8 @@ module TeammatesHelper
     end
     return link
   end
+
+  def myself?(tm)
+    return tm.id == session[:user_id]
+  end
 end
