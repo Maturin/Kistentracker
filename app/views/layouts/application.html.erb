@@ -15,6 +15,7 @@
     <% end %>
     <% if logged_in? %>
     <a href="<%= teammates_url %>">Mannschaft</a> | 
+    <a href="<%= teammate_path(session[:user_id]) %>">Benutzer Informationen</a> |
     <a href="<%= logout_url %>">Logout (<%= user_name %>)</a>
     <% else %>
     <a href="<%= login_url %>">Login</a>
