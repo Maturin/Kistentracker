@@ -31,4 +31,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-gem 'vpim'
+gem 'vpim', :require => 'vpim/vcard'
