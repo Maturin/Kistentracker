@@ -23,9 +23,13 @@ Kistentracker::Application.routes.draw do
 
   resources :teammates
 
-  get 'teammates/:id/changepassword' => 'teammates#changepassword'
-  put 'teammates/:id/changepassword' => 'teammates#updatepassword'
-  post 'teammates/:id/changepassword' => 'teammates#updatepassword'
+  resources :teammates do 
+    member do 
+      get 'changepassword' => :changepassword
+      put 'changepassword' => :updatepassword
+      post 'changepassword' => :updatepassword
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

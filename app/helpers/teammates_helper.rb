@@ -9,6 +9,10 @@ module TeammatesHelper
   end
 
   def myself?(tm)
-    return tm.id == session[:user_id]
+    if tm.kind_of?(String)
+      return tm == session[:user_id].to_s
+    else
+      return tm.id == session[:user_id]
+    end
   end
 end

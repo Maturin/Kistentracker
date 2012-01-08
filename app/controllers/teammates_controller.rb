@@ -1,4 +1,7 @@
 class TeammatesController < ApplicationController
+
+  include TeammatesHelper
+  
   # GET /teammates
   # GET /teammates.json
   def index
@@ -29,6 +32,11 @@ class TeammatesController < ApplicationController
   # GET /teammates/new
   # GET /teammates/new.json
   def new
+    unless admin_priveledge?
+      redirect_to teammates_path, :notice => "Die noetigen Rechte fehlen."
+      return
+    end
+
     @teammate = Teammate.new
 
     respond_to do |format|
@@ -39,18 +47,30 @@ class TeammatesController < ApplicationController
 
   # GET /teammates/1/edit
   def edit
+    if (admin_priveledge? == false) && (myself?(params[:id]) == false)
+      redirect_to teammates_path, :notice => "Die noetigen Rechte zum fehlen."
+    end
+
     @teammate = Teammate.find(params[:id])
   end
 
   # GET /teammates/1/password
   def changepassword
-    if @teammate.nil?
-      @teammate = Teammate.find(params[:id])
+    if (admin_priveledge? == false) && (myself?(params[:id]) == false)
+      redirect_to teammate_path(params[:id]), :notice => "Die noetigen Rechte zum aendern des Passworts fehlen."
+      return
     end
+
+    @teammate = Teammate.find(params[:id])
   end
 
   # POST /teammates/1/password
   def updatepassword
+    if (admin_priveledge? == false) && (myself?(params[:id]) == false)
+      redirect_to teammate_path(params[:id]), :notice => "Die noetigen Rechte zum aendern des Passworts fehlen."
+      return
+    end
+
     @teammate = Teammate.find(params[:id])
 
     form_fields = params[:teammate]
@@ -59,7 +79,7 @@ class TeammatesController < ApplicationController
       if @teammate.change_password(form_fields[:password], form_fields[:password_new], form_fields[:password_confirmation])
         format.html { redirect_to @teammate, :notice => 'Password wurde erfolgreich geaendert.' }
       else
-        render(:action => :changepassword)
+        format.html { render :action => :changepassword }
       end
     end
   end
@@ -67,6 +87,11 @@ class TeammatesController < ApplicationController
   # POST /teammates
   # POST /teammates.json
   def create
+    unless admin_priveledge?
+      redirect_to teammates_path, :notice => "Die noetigen Rechte fehlen."
+      return
+    end
+
     @teammate = Teammate.new(params[:teammate])
 
     respond_to do |format|
@@ -83,6 +108,11 @@ class TeammatesController < ApplicationController
   # PUT /teammates/1
   # PUT /teammates/1.json
   def update
+    if (admin_priveledge? == false) && (myself?(params[:id]) == false)
+      redirect_to teammates_path, :notice => "Die noetigen Rechte fehlen."
+      return
+    end
+
     @teammate = Teammate.find(params[:id])
 
     respond_to do |format|
@@ -99,6 +129,11 @@ class TeammatesController < ApplicationController
   # DELETE /teammates/1
   # DELETE /teammates/1.json
   def destroy
+    unless admin_priveledge?
+      redirect_to teammates_path, :notice => "Die noetigen Rechte zum loeschen eines Spielers fehlen."
+      return
+    end
+
     @teammate = Teammate.find(params[:id])
     @teammate.destroy
 
