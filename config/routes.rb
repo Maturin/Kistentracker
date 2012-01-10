@@ -1,35 +1,40 @@
 Kistentracker::Application.routes.draw do
 
-  resources :crate_priorities
+  scope '(:locale)' do
+    resources :overview
 
-  resources :crate_types
+    resources :teammates
+    resources :teammates do 
+      member do 
+        get 'changepassword' => :changepassword
+        put 'changepassword' => :updatepassword
+        post 'changepassword' => :updatepassword
+      end
+    end
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    get 'logout' => :destroy
-    delete 'logout' => :destroy
+    controller :sessions do
+      get 'login' => :new
+      post 'login' => :create
+      get 'logout' => :destroy
+      delete 'logout' => :destroy
+    end
+
+    root :to => 'overview#index'
   end
-  
-  resources :overview
 
   resources :crates
-
-  controller :crates do
-    get  'crates/:id/waspaid' => :show_waspaid
+  resources :crates do
+    member do 
+      get  'waspaid' => :show_waspaid
+    end
   end
 
   resources :cratepayers
 
-  resources :teammates
+  resources :crate_priorities
 
-  resources :teammates do 
-    member do 
-      get 'changepassword' => :changepassword
-      put 'changepassword' => :updatepassword
-      post 'changepassword' => :updatepassword
-    end
-  end
+  resources :crate_types
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -78,9 +83,6 @@ Kistentracker::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'overview#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -48,21 +48,21 @@ class Teammate < ActiveRecord::Base
     if (self.hashed_password.nil? == false)
       if current.nil?
         successful = false
-        errors.add(:password, "darf nicht leer sein.")
+        errors.add(:password, I18n.translate('activerecord.errors.messages.blank'))
       elsif self.hashed_password != self.class.encrypt_password(current, self.salt)
         successful = false
-        errors.add(:password, "Passwort ist falsch.")
+        errors.add(:password, I18n.translate('activerecord.errors.messages.wrong'))
       end
     end
 
     if (new.length < 4)
       successful = false
-      errors.add(:password_new, "Neues Paswort muss mindestens 4 Zeichen lang sein.")
+      errors.add(:password_new, I18n.translate('activerecord.errors.messages.password_too_short'))
     end
 
     if (new != confirmation)
       successful = false
-      errors.add(:password_confirmation, "Neues Paswort und die Bestaetigung stimmen nicht ueberein.")
+      errors.add(:password_confirmation, I18n.translate('activerecord.errors.messages.wrong'))
     end
 
     if successful

@@ -1,6 +1,5 @@
-<h1>Spielerinformation &Auml;ndern</h1>
+<h1><%= t('.change_teammate') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @teammate %> |
-<%= link_to 'Back', teammates_path %>
+<%= link_to t('.cancel'), @teammate %>

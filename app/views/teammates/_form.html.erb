@@ -13,40 +13,40 @@
 
 <table class="noborder">
   <tr class="field">
-    <td>Vorname:</td>
+    <td><%= f.label :firstname %>:</td>
     <td><%= f.text_field :firstname %></td>
   </tr>
   <tr class="field">
-    <td>Nachname:</td>
+    <td><%= f.label :lastname %>:</td>
     <td><%= f.text_field :lastname %></td>
   </tr>
   <tr class="field">
-    <td>Strasse:</td>
+    <td><%= f.label :address %>:</td>
     <td><%= f.text_area :address, :cols => 22, :rows => 3 %></td>
   </tr>
   <tr class="field">
-    <td>PLZ:</td>
+    <td><%= f.label :zip %>:</td>
     <td><%= f.text_field :zip %></td>
   </tr>
   <tr class="field">
-    <td>Stadt:</td>
+    <td><%= f.label :city %>:</td>
     <td><%= f.text_field :city %></td>
   </tr>
   <tr class="field">
-    <td>Telefon:</td>
+    <td><%= f.label :phone %>:</td>
     <td><%= f.text_field :phone %></td>
   </tr>
   <tr class="field">
-    <td>Handy:</td>
+    <td><%= f.label :cell %>:</td>
     <td><%= f.text_field :cell %></td>
   </tr>
   <tr class="field">
-    <td>Geburtstag:</td>
-    <td><%= f.date_select :dob, :start_year => 1960, :end_year => (Time.now.year - 10)  %></td>
+    <td><%= f.label :dob %>:</td>
+    <td><%= f.date_select :dob, :start_year => 1960, :end_year => (Time.now.year - 10)  %></td> 
   </tr>
 </table>
 
 <div class="actions">
-  <%= f.submit "Speichern"  %>
+  <%= f.submit t('.submit') %>
 </div>
 <% end %>

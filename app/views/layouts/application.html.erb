@@ -9,16 +9,16 @@
 <body>
 
   <div>
-    <a href="/">Home</a> | 
+    <a href="/"><%= t('.home') %></a> | 
     <% if crate_priveledge? %>
-    <a href="<%= new_crate_url %>">Neue Kiste</a> | 
+    <a href="<%= new_crate_url %>"><%= t('.new_crate') %></a> | 
     <% end %>
     <% if logged_in? %>
-    <a href="<%= teammates_url %>">Mannschaft</a> | 
-    <a href="<%= teammate_path(session[:user_id]) %>">Benutzer Informationen</a> |
-    <a href="<%= logout_url %>">Logout (<%= user_name %>)</a>
+    <a href="<%= teammates_url %>"><%= t('.team') %></a> | 
+    <a href="<%= teammate_path(session[:user_id]) %>"><%= t('.account') %></a> |
+    <a href="<%= logout_url %>"><%= t('.logout') + " (#{user_name})" %></a>
     <% else %>
-    <a href="<%= login_url %>">Login</a>
+    <a href="<%= login_url %>"><%= t('.login') %></a>
     <% end %>
   </div>
 

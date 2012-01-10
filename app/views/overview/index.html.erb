@@ -1,13 +1,13 @@
-<h1>Ausstehende Kisten</h1>
+<h1><%= t('.remaining_crates') %></h1>
 
 <% @pend_crates.each do |crate| %>
 <p><b><%= crate.name %> - <%= crate.reason %></b> (<%= crate.date %>, <%= crate.crate_type %>, <%= crate.description %>)
   <% if crate_priveledge? %>
-    [<a href="crates/<%= crate.id %>/waspaid">Bezahlt</a>]
+    [<%= link_to t('.paid'), waspaid_crate_path(crate) %>]
   <% end %></p>
 <% end %>
 
-<h1>Zuletzt bezahlte Kisten</h1>
+<h1><%= t('.last_paid_crates') %></h1>
 
 <% @paid_crates.each do |crate| %>
 <p><b><%= crate.name %> - <%= crate.reason %></b> (<%= crate.paid %>, <%= crate.crate_type %>, <%= crate.description %>)

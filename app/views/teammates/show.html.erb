@@ -1,49 +1,49 @@
-<h1>Spieler: <%= @teammate.cratepayer.name %></h1>
+<h1><%= "#{t('teammate')}: #{@teammate.cratepayer.name}"%></h1>
 <p id="notice"><%= notice %></p>
 
 <table class="noborder">
   <tr>
-    <td>Vorname:</td>
+    <td><%= t('firstname') %>:</td>
     <td><%= @teammate.firstname %></td>
   </tr>
   <tr>
-    <td>Nachname:</td>
+    <td><%= t('lastname') %>:</td>
     <td><%= @teammate.lastname %></td>
   </tr>
   <tr>
-    <td>Strasse:</td>
+    <td><%= t('address') %>:</td>
     <td><%= @teammate.address %></td>
   </tr>
   <tr>
-    <td>PLZ:</td>
+    <td><%= t('ZIP') %>:</td>
     <td><%= @teammate.zip %></td>
   </tr>
   <tr>
-    <td>Stadt:</td>
+    <td><%= t('city') %>:</td>
     <td><%= @teammate.city %></td>
   </tr>
   <tr>
-    <td>Telefon:</td>
+    <td><%= t('phone') %>:</td>
     <td><%= @teammate.phone %></td>
   </tr>
   <tr>
-    <td>Handy:</td>
+    <td><%= t('cell') %>:</td>
     <td><%= @teammate.cell %></td>
   </tr>
   <tr>
-    <td>Email:</td>
+    <td><%= t('email') %>:</td>
     <td><%= @teammate.cratepayer.email %></td>
   </tr>
   <tr>
-    <td>Geburtstag:</td>
+    <td><%= t('birthday') %>:</td>
     <td><%= @teammate.dob %></td>
   </tr>
 </table>
 
 <br />
 
-<%= link_to 'Back', teammates_path %>
+<%= link_to t('back'), teammates_path %>
 <% if myself?(@teammate) || admin_priveledge? %>
-| <%= link_to 'Passwort aendern', teammate_path(@teammate) + '/changepassword' %>
-| <%= link_to 'Edit', edit_teammate_path(@teammate) %>
+| <%= link_to t('.change_password'), changepassword_teammate_path(@teammate) %>
+| <%= link_to t('.edit'), edit_teammate_path(@teammate) %>
 <% end %>

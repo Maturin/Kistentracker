@@ -1,18 +1,18 @@
-<h1>Mannschaft</h1>
+<h1><%= t('team') %></h1>
 
 <table>
   <tr>
-    <th>ID</th>
+    <th><%= t('ID') %></th>
     <th>&nbsp;</th>
-    <th>Nachname</th>
-    <th>Vorname</th>
-    <th>Geburtsdatum</th>
-    <th>Adresse</th>
-    <th>PLZ</th>
-    <th>Stadt</th>
-    <th>Telefon</th>
-    <th>Handy</th>
-    <th>Email</th>
+    <th><%= t('lastname') %></th>
+    <th><%= t('firstname') %></th>
+    <th><%= t('birthday') %></th>
+    <th><%= t('address') %></th>
+    <th><%= t('ZIP') %></th>
+    <th><%= t('city') %></th>
+    <th><%= t('phone') %></th>
+    <th><%= t('cell') %></th>
+    <th><%= t('email') %></th>
     <th></th>
   </tr>
 
@@ -41,5 +41,5 @@
 <br />
 
 <% if admin_priveledge? %>
-<%= link_to 'New Teammate', new_teammate_path %>
+<%= link_to t('.new_teammate'), new_teammate_path %>
 <% end %>

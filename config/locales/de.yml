@@ -1,0 +1,101 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+
+  team: "Mannschaft"
+  teammate: "Spieler"
+  lastname: "Nachname"
+  firstname: "Vorname"
+  birthday: "Geburtsdatum"
+  address: "Adresse"
+  ZIP: "PLZ"
+  city: "Stadt"
+  phone: "Telefon"
+  cell: "Handy"
+  email: "Email"
+  back: "Zurück"
+
+  date:
+    order: [ :day, :month, :year ]
+    formats: 
+      default: "%d.%m.%Y"
+      short: "%d.%m."
+      long: "%d.%m.%Y"
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mrz, Apr, Mai, Jun, Jul, Aug, Sep, Ok, Nov, Dez]
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "Dieser Text muss noch passend übersetzt werden"
+        blank: "darf nicht leer sein."
+        wrong: "ist falsch"
+        password_too_short: "muss mindestens 4 Zeichen lang sein."
+    attributes:
+      teammate:
+        lastname: "Nachname"
+        firstname: "Vorname"
+        dob: "Geburtsdatum"
+        address: "Adresse"
+        zip: "PLZ"
+        city: "Stadt"
+        phone: "Telefon"
+        cell: "Handy"
+        password: "Kennwort"
+        password_new: "Neues Kennwort"
+        password_confirmation: "Kennwort Bestätigung"
+
+  errors:
+    template:
+      body:    "Folgende Probleme sind aufgetreten:"
+      header:
+        one:   "Ein Fehler verhindert, dass %{model} gespeichert wird!"
+        other: "%{count} Fehler verhindert, dass %{model} gespeichert wird!"
+
+  layouts:
+    application:
+      home:      "Home"
+      new_crate: "Neue Kiste"
+      team:      "Mannschaft"
+      account:   "Konto"
+      login:     "Login"
+      logout:    "Logout"
+
+  overview:
+    index:
+      remaining_crates: "Ausstehende Kisten"
+      last_paid_crates: "Zuletzt bezahlte Kisten"
+      paid:             "Bezahlt"
+
+  sessions:
+    new:
+      please_login: "Bitte Einloggen"
+      login: "Login"
+      user_name: "Benutzername"
+      password: "Kennwort"
+
+  teammates:
+    index:
+      new_teammate:         "Neuer Spieler"
+    show:
+      change_password:      "Kennwort Ändern"
+      edit:                 "Ändern"
+    changepassword:
+      the_password:         "das Kennwort"
+      change_password:      "Kennwort Ändern"
+      current_password:     "Aktuelles Kennwort"
+      new_password:         "Neues Kennwort"
+      confirm_new_password: "Neues Kennwort Bestätigen"
+      submit:               "Speichern"
+    new:
+      new_teammate:         "Neuer Spieler"
+      cancel:               "Ändern abbrechen"
+    edit:
+      change_teammate:      "Spieler Ändern"
+      cancel:               "Ändern abbrechen"
+    form:
+      submit:               "Speichern"
+    
