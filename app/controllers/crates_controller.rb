@@ -52,6 +52,7 @@ class CratesController < ApplicationController
 
     respond_to do |format|
       if @crate.save
+        CratesNotifier.crate_received(@crate).deliver
         format.html { redirect_to @crate, :notice => 'Crate was successfully created.' }
         format.json { render :json => @crate, :status => :created, :location => @crate }
       else
@@ -66,8 +67,16 @@ class CratesController < ApplicationController
   def update
     @crate = Crate.find(params[:id])
 
+    paid = @crate.paid
+
     respond_to do |format|
       if @crate.update_attributes(params[:crate])
+        
+        # Only sending the mail, in case the paid date was newly added.
+        if (paid.nil? == true)  && (@crate.paid.nil? == false)
+          CratesNotifier.crate_paid(@crate).deliver
+        end
+
         format.html { redirect_to @crate, :notice => 'Crate was successfully updated.' }
         format.json { head :ok }
       else

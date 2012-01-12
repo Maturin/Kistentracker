@@ -1,5 +1,18 @@
 Kistentracker::Application.routes.draw do
 
+  resources :crates
+  resources :crates do
+    member do 
+      get  'waspaid' => :show_waspaid
+    end
+  end
+
+  resources :cratepayers
+
+  resources :crate_priorities
+
+  resources :crate_types
+
   scope '(:locale)' do
     resources :overview
 
@@ -21,19 +34,6 @@ Kistentracker::Application.routes.draw do
 
     root :to => 'overview#index'
   end
-
-  resources :crates
-  resources :crates do
-    member do 
-      get  'waspaid' => :show_waspaid
-    end
-  end
-
-  resources :cratepayers
-
-  resources :crate_priorities
-
-  resources :crate_types
 
 
   # The priority is based upon order of creation:
